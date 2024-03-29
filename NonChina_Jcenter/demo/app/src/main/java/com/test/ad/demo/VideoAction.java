@@ -1,5 +1,10 @@
 package com.test.ad.demo;
+/*
 
+ * https://www.takuad.com
+
+
+ */
 
 public class VideoAction{
     public static String VOICE_CHANGE = "voice_change";

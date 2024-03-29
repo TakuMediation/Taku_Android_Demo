@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<!--
+  ~ https://www.takuad.com
+ -->
 
 <resources>
     <dimen name="anythink_pic_size">100dp</dimen>

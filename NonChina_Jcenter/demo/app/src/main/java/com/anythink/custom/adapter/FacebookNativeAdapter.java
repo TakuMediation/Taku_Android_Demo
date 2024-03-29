@@ -1,4 +1,10 @@
+/*
 
+ * https://www.takuad.com
+
+
+ *
+ */
 
 package com.anythink.custom.adapter;
 

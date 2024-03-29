@@ -1,10 +1,3 @@
-/*
-
- * https://www.takuad.com
-
-
- */
-
 package com.test.ad.demo;
 
 import android.annotation.SuppressLint;

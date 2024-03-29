@@ -44,7 +44,7 @@
 
 
         <RelativeLayout
-            android:id="@+id/taku_adx"
+            android:id="@+id/topon_adx"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/anythink_10dp"
@@ -76,7 +76,7 @@
                     android:id="@+id/tv_title_interstitial"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Taku Adx"
+                    android:text="TopOn Adx"
                     android:textColor="@android:color/black"
                     android:textSize="@dimen/anythink_title_size" />
 
@@ -88,7 +88,7 @@
                     android:layout_alignLeft="@id/tv_title_interstitial"
                     android:layout_marginTop="@dimen/anythink_desc_margin_top"
                     android:maxLines="3"
-                    android:text="Taku Adx"
+                    android:text="Topon Adx"
                     android:textColor="@color/anythink_666666"
                     android:textSize="@dimen/anythink_desc_size" />
             </LinearLayout>

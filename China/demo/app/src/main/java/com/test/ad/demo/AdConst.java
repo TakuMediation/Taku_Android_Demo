@@ -1,12 +1,7 @@
 package com.test.ad.demo;
 
-/**
- * Description:
- * Created by Quin on 2023/8/1.
- **/
 public class AdConst {
     /*
-     * To collect scene arrival rate statistics, you can refer to the link below:
      * Call the "Enter AD scene" method when an AD trigger condition is met, such as:
      * The scenario is a pop-up AD after the cleanup, which is called at the end of the cleanup.
      * The scenarioId support custom.
@@ -22,4 +17,13 @@ public class AdConst {
         public static final String BANNER_AD_SCENARIO = "banner_ad_show_1";
         public static final String REWARD_VIDEO_AD_SCENARIO = "reward_video_ad_show_1";
     }
+
+    public static class SHOW_CUSTOM_EXT {
+        public static final String SPLASH_AD_SHOW_CUSTOM_EXT = "splash_ad_show_custom_ext";
+        public static final String INTERSTITIAL_AD_SHOW_CUSTOM_EXT = "interstitial_ad_show_custom_ext";
+        public static final String NATIVE_AD_SHOW_CUSTOM_EXT = "native_ad_show_custom_ext";
+        public static final String BANNER_AD_SHOW_CUSTOM_EXT = "banner_ad_show_custom_ext";
+        public static final String REWARD_VIDEO_AD_SHOW_CUSTOM_EXT = "reward_video_ad_show_custom_ext";
+    }
+
 }

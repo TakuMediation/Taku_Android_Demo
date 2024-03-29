@@ -1,10 +1,3 @@
-/*
-
- * https://www.takuad.com
-
-
- */
-
 package com.test.ad.demo.zoomout;
 
 import com.anythink.splashad.api.IATSplashEyeAd;

@@ -1,10 +1,4 @@
 package com.test.ad.demo;
-/*
-
- * https://www.takuad.com
-
-
- */
 
 public class PanelAction {
     public static String VOICE_CHANGE = "voice_change";

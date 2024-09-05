@@ -11,20 +11,18 @@
         android:gravity="center"
         android:padding="@dimen/anythink_padding">
 
-        <ImageView
-            android:id="@+id/iv_sdk_logo"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_centerVertical="true"
-            android:src="@mipmap/ic_demo_logo" />
+<!--        <ImageView-->
+<!--            android:id="@+id/iv_sdk_logo"-->
+<!--            android:layout_width="25dp"-->
+<!--            android:layout_height="25dp"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:src="@mipmap/ic_app" />-->
 
         <TextView
             android:id="@+id/tv_sdk_demo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/iv_sdk_logo"
+            android:layout_centerInParent="true"
             android:text="@string/anythink_sdk_demo"
             android:textColor="@color/anythink_1E2231"
             android:textSize="@dimen/anythink_title_bar_text_size" />

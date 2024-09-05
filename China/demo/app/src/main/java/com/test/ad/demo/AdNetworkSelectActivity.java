@@ -21,7 +21,7 @@ public class AdNetworkSelectActivity extends Activity {
     }
 
     private void initView() {
-        mRlAdx = findViewById(R.id.topon_adx);
+        mRlAdx = findViewById(R.id.taku_adx);
     }
 
     private void initListener() {

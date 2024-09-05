@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 
-apply from: 'topon.gradle'
+apply from: 'taku.gradle'
 
 android {
     compileSdkVersion 30

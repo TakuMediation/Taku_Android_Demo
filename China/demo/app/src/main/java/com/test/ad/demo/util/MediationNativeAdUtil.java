@@ -314,7 +314,7 @@ public class MediationNativeAdUtil {
 
         //关闭按钮渲染方式有两种：
         // 1.开发者自渲染，通过AdPrepareInfo的setCloseView()方法设置；
-        // 2.如果没有设置AdPrepareInfo的setCloseView()，则TopOn SDK默认会在布局右上角添加关闭按钮。
+        // 2.如果没有设置AdPrepareInfo的setCloseView()，则Taku SDK默认会在布局右上角添加关闭按钮。
         boolean closeBtnCustomRender = false;
         if (closeBtnCustomRender) {
             //方式1，通过AdPrepareInfo的setCloseView()设置关闭按钮

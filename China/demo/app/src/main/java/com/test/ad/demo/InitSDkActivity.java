@@ -69,7 +69,7 @@ public class InitSDkActivity extends Activity {
                 if (!mHasInitSdk) {
                     //隐私协议url
                     if (TextUtils.isEmpty(mPrivacyWebView.getUrl())) {
-                        mPrivacyWebView.loadUrl("https://www.toponad.com/zh-cn/privacy-policy");
+                        mPrivacyWebView.loadUrl("https://www.takuad.com/zh-cn/privacy-policy");
                     }
                     mRlPrivacyContainer.setVisibility(View.VISIBLE);
                 } else {

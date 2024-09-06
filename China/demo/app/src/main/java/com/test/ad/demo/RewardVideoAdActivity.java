@@ -81,6 +81,16 @@ public class RewardVideoAdActivity extends BaseActivity implements View.OnClickL
         public void onReward(ATAdInfo adInfo) {
             Log.e(TAG, "onReward:\n" + adInfo.toString());
             printLogOnUI("onReward");
+
+            printRewardInfo("onReward rewardInfo", adInfo);
+        }
+
+        @Override
+        public void onRewardFailed(ATAdInfo adInfo) {
+            Log.e(TAG, "onRewardFailed:\n" + adInfo.toString());
+            printLogOnUI("onRewardFailed");
+
+            printRewardInfo("onRewardFailed rewardInfo", adInfo);
         }
 
         public void onDeeplinkCallback(ATAdInfo adInfo, boolean isSuccess) {
@@ -117,8 +127,19 @@ public class RewardVideoAdActivity extends BaseActivity implements View.OnClickL
         public void onAgainReward(ATAdInfo adInfo) {
             Log.i(TAG, "onAgainReward:\n" + adInfo.toString());
             printLogOnUI("onAgainReward");
+
+            printRewardInfo("onAgainReward rewardInfo", adInfo);
+        }
+
+        @Override
+        public void onAgainRewardFailed(ATAdInfo adInfo) {
+            Log.i(TAG, "onAgainRewardFailed:\n" + adInfo.toString());
+            printLogOnUI("onAgainRewardFailed");
+
+            printRewardInfo("onAgainRewardFailed rewardInfo", adInfo);
         }
     };
+
     private final Map<String, Boolean> mAutoLoadPlacementIdMap = new HashMap<>();
     private ATRewardVideoAd mRewardVideoAd;
     private boolean mIsAutoLoad;
@@ -176,7 +197,7 @@ public class RewardVideoAdActivity extends BaseActivity implements View.OnClickL
 
     private void initRewardVideoAd(String placementId) {
         mRewardVideoAd = new ATRewardVideoAd(this, placementId);
-
+        mRewardVideoAd.setAdRevenueListener(new AdRevenueListenerImpl());
         mRewardVideoAd.setAdListener(new ATRewardVideoExListener() {
 
             @Override
@@ -220,6 +241,16 @@ public class RewardVideoAdActivity extends BaseActivity implements View.OnClickL
             public void onAgainReward(ATAdInfo entity) {
                 Log.i(TAG, "onAgainReward:\n" + entity.toString());
                 printLogOnUI("onAgainReward");
+
+                printRewardInfo("onAgainReward rewardInfo", entity);
+            }
+
+            @Override
+            public void onAgainRewardFailed(ATAdInfo entity) {
+                Log.i(TAG, "onAgainRewardFailed:\n" + entity.toString());
+                printLogOnUI("onAgainRewardFailed");
+
+                printRewardInfo("onAgainRewardFailed rewardInfo", entity);
             }
             //-------------------------- Only for CSJ --------------------------
 
@@ -269,11 +300,21 @@ public class RewardVideoAdActivity extends BaseActivity implements View.OnClickL
             public void onReward(ATAdInfo entity) {
                 Log.e(TAG, "onReward:\n" + entity.toString());
                 printLogOnUI("onReward");
+
+                printRewardInfo("onReward rewardInfo", entity);
+            }
+
+            @Override
+            public void onRewardFailed(ATAdInfo entity) {
+                Log.i(TAG, "onRewardFailed:\n" + entity.toString());
+                printLogOnUI("onRewardFailed");
+
+                printRewardInfo("onRewardFailed rewardInfo", entity);
             }
         });
 
         mRewardVideoAd.setAdSourceStatusListener(new ATAdSourceStatusListenerImpl());
-
+        mRewardVideoAd.setAdMultipleLoadedListener(new AdMultipleLoadedListener());
     }
 
     private void initAutoLoad() {
@@ -351,7 +392,7 @@ public class RewardVideoAdActivity extends BaseActivity implements View.OnClickL
     private void showAd() {
         if (mIsAutoLoad) {
 //            ATRewardVideoAutoAd.show(this, mCurrentPlacementId, autoEventListener);
-            ATRewardVideoAutoAd.show(this, mCurrentPlacementId, getATShowConfig(), autoEventListener);
+            ATRewardVideoAutoAd.show(this, mCurrentPlacementId, getATShowConfig(), autoEventListener, new AdRevenueListenerImpl());
         } else {
 //            mRewardVideoAd.show(RewardVideoAdActivity.this);
             mRewardVideoAd.show(RewardVideoAdActivity.this, getATShowConfig());
@@ -368,6 +409,7 @@ public class RewardVideoAdActivity extends BaseActivity implements View.OnClickL
             mRewardVideoAd.setAdSourceStatusListener(null);
             mRewardVideoAd.setAdDownloadListener(null);
             mRewardVideoAd.setAdListener(null);
+            mRewardVideoAd.setAdMultipleLoadedListener(null);
         }
     }
 
@@ -399,5 +441,23 @@ public class RewardVideoAdActivity extends BaseActivity implements View.OnClickL
 
         return builder.build();
     }
+
+    private static void printRewardInfo(String msg, ATAdInfo entity) {
+        Map<String, Object> extInfoMap = entity.getExtInfoMap();
+        if (extInfoMap != null) {
+            Object rewardInfoObj = extInfoMap.get(ATAdConst.REWARD_EXTRA.REWARD_INFO);
+            if (rewardInfoObj instanceof Map) {
+                Map<String, Object> rewardMap = (Map<String, Object>) rewardInfoObj;
+
+                for (Map.Entry<String, Object> stringObjectEntry : rewardMap.entrySet()) {
+                    String key = stringObjectEntry.getKey();
+                    Object value = stringObjectEntry.getValue();
+
+                    Log.e(TAG, msg + ": key=" + key + ", value=" + value);
+                }
+            }
+        }
+    }
+
 }
 

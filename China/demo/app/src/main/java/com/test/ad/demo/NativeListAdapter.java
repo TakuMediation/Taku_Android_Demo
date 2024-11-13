@@ -189,7 +189,9 @@ public class NativeListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     //Simple implementation to limit the specified number of advertisement caches in a List to avoid excessive memory
     private void controlNativeAdCacheSize(RecycleViewDataBean recycleViewDataBean, boolean hasUseNewAd) {
         if (hasUseNewAd) {
-            mNativeAdBeanList.add(recycleViewDataBean);
+            if (recycleViewDataBean.nativeAd != null) {
+                mNativeAdBeanList.add(recycleViewDataBean);
+            }
         }
 
         if (mNativeAdBeanList.size() > limitAdSize) {
@@ -403,12 +405,13 @@ public class NativeListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
             if (recycleViewDataBean != null && recycleViewDataBean.nativeAd != null) {
                 mImpressionAdMap.remove(String.valueOf(recycleViewDataBean.nativeAd.hashCode()), recycleViewDataBean.nativeAd);
-                if (holder.getAdapterPosition() == -1) {
-                    recycleViewDataBean.nativeAd.destory();
-                    mNativeAdBeanList.remove(recycleViewDataBean);
-                } else {
-                    recycleViewDataBean.nativeAd.onPause();
-                }
+                recycleViewDataBean.nativeAd.onPause();
+//                if (holder.getAdapterPosition() == -1) {
+//                    recycleViewDataBean.nativeAd.destory();
+//                    mNativeAdBeanList.remove(recycleViewDataBean);
+//                } else {
+//                    recycleViewDataBean.nativeAd.onPause();
+//                }
             }
         }
     }

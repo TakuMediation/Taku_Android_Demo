@@ -1,5 +1,41 @@
-# Default ignored files
-/build
-/.gradle
-/.idea
-/local.properties
+# Gradle files
+.gradle/
+build/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Log/OS Files
+*.log
+
+# Android Studio generated files and folders
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+output.json
+
+# IntelliJ
+*.iml
+.idea/
+misc.xml
+deploymentTargetDropDown.xml
+render.experimental.xml
+
+# Keystore files
+*.jks
+*.keystore
+
+# Google Services (e.g. APIs or Firebase)
+google-services.json
+
+# Android Profiling
+*.hprof
+
+demo/.idea/*
+demo/build/*
+demo/.gradle/*
+demo/.gradle/4.1/*
+demo/.idea/**
+demo/app/build
+local.properties

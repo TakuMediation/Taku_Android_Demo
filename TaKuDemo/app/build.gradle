@@ -1,0 +1,55 @@
+apply plugin: 'com.android.application'
+
+apply from: 'taku.gradle'
+
+android {
+    compileSdkVersion 34
+    namespace "com.anythink.sdk.demo"
+    defaultConfig {
+        applicationId "com.anythink.sdk.demo"
+        minSdkVersion 21
+        targetSdkVersion 34
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled = true
+    }
+    signingConfigs {
+        demo {
+            keyAlias 'anythink'
+            keyPassword '123456'
+            storeFile file('anythink.jks')
+            storePassword '123456'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.demo
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+repositories{
+    flatDir {
+        dirs 'libs'
+    }
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    api fileTree(include: ['*.jar','*.aar'], dir: 'libs')
+
+    compileOnly 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.android.support:multidex:1.0.2'
+
+    implementation 'com.github.DingMouRen:LayoutManagerGroup:1e6f4f96eb'
+
+    implementation 'com.anythink.sdk:debugger-ui:1.1.2'
+}

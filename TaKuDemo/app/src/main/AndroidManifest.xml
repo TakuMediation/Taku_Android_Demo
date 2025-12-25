@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:name="com.test.ad.demo.DemoApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_app"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar"
+        android:usesCleartextTraffic="true"
+        tools:replace="android:allowBackup" >
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity
+            android:name="com.test.ad.demo.AdNetworkSelectActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.test.ad.demo.InitSDkActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.test.ad.demo.MainActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.NoActionBar" >
+        </activity>
+        <activity
+            android:name="com.test.ad.demo.NativeMainActivity"
+            android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize|screenLayout"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.test.ad.demo.NativeAdActivity"
+            android:exported="false"
+            android:label="Native" />
+        <activity
+            android:name="com.test.ad.demo.NativeDrawVideoActivity"
+            android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize|screenLayout"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.test.ad.demo.NativePatchVideoActivity"
+            android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize|screenLayout"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen" />
+        <activity
+            android:name="com.test.ad.demo.RewardVideoAdActivity"
+            android:exported="false"
+            android:label="RewardedVideo" />
+        <activity
+            android:name="com.test.ad.demo.InterstitialAdActivity"
+            android:exported="false"
+            android:label="Interstitial" />
+        <activity
+            android:name="com.test.ad.demo.BannerAdActivity"
+            android:exported="false"
+            android:label="Banner" />
+        <activity
+            android:name="com.test.ad.demo.SplashAdActivity"
+            android:exported="false"
+            android:label="Splash" />
+        <activity
+            android:name="com.test.ad.demo.SplashAdShowActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="false"
+            android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen" />
+        <activity
+            android:name="com.test.ad.demo.SplashAdShowInCurrentActivity"
+            android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize|screenLayout"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen" />
+        <activity
+            android:name="com.test.ad.demo.NativeListActivity"
+            android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize|screenLayout"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.NoActionBar" />
+        <activity
+            android:name="com.test.ad.demo.TestMainActivity"
+            android:configChanges="keyboardHidden|orientation|keyboard|smallestScreenSize|screenSize|screenLayout"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen" /> <!-- Only for huawei ads 3.4.56.302 -->
+        <meta-data
+            android:name="hw_ads_sdk_type"
+            android:value="3"
+            tools:node="replace" />
+    </application>
+
+</manifest>

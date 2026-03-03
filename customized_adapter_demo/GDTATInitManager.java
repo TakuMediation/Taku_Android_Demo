@@ -10,6 +10,7 @@ import com.anythink.core.api.ATAdConst;
 import com.anythink.core.api.ATInitMediation;
 import com.anythink.core.api.ATSDK;
 import com.anythink.core.api.MediationInitCallback;
+import com.anythink.core.api.bridge.ATAdapterBridgeConst;
 import com.qq.e.comm.constants.LoadAdParams;
 import com.qq.e.comm.managers.GDTAdSdk;
 import com.qq.e.comm.managers.setting.GlobalSetting;
@@ -34,6 +35,13 @@ public class GDTATInitManager extends ATInitMediation {
 
     private GDTATInitManager() {
         mIsIniting = new AtomicBoolean(false);
+    }
+
+
+    //6.5.50以上版本增加该方法返回
+    @Override
+    public int getAdapterBridgeVersion() {
+        return ATAdapterBridgeConst.ADAPTER_BRIDGE_VERSIONCODE;
     }
 
     public static GDTATInitManager getInstance() {
@@ -180,5 +188,4 @@ public class GDTATInitManager extends ATInitMediation {
         loadAdParams.setDevExtra(loadMap);
         return loadAdParams;
     }
-
 }
